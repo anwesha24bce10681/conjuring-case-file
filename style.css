@@ -1488,7 +1488,7 @@ button:hover {
 .opening button {
     opacity: 0;
     transform: translateY(10px);
-    animation: openingReveal 0.8s ease 1.5s forwards;
+    animation: openingReveal 0.8s ease 0.5s forwards, investigationPulse 3s ease-in-out 1.3s infinite;
 }
 
 @keyframes openingReveal {
@@ -1631,9 +1631,7 @@ button:hover {
     border-bottom: 1px solid;
     border-right: 1px solid;
 }
-.opening button {
-    animation: investigationPulse 3s ease-in-out infinite;
-}
+ 
 
 @keyframes investigationPulse {
     0%, 100% {
@@ -1762,3 +1760,8 @@ button:hover {
 .code-section{width:min(600px,92%);margin:35px auto;padding:30px;background:rgba(0,0,0,.78);border:1px solid rgba(200,190,175,.2);color:#c9c0b4}.code-section>p:first-child{margin-top:0;color:#b52a2a;font-size:12px;font-weight:bold;letter-spacing:3px}.code-hint{color:#898176;font-size:13px}#code-input{width:120px;margin:15px 10px;padding:12px;background:#080808;border:1px solid #6e1818;color:#e8e1d5;font-family:Georgia,serif;font-size:22px;text-align:center;outline:none}#code-input:focus{border-color:#b52a2a}#code-result{min-height:25px;margin:15px 0 0;color:#c9c0b4;font-size:13px}
 .game-ending{display:none;width:min(700px,92%);margin:45px auto 0;padding:35px 30px;background:rgba(0,0,0,.86);border:1px solid rgba(140,29,29,.6);color:#d6cec2;font-size:15px;line-height:1.8;box-shadow:0 20px 50px rgba(0,0,0,.7)}.game-ending.show{display:block}.ending-warning{color:#b52a2a;font-size:12px;font-weight:bold;letter-spacing:3px}.ending-final{margin:25px 0;color:#e8e1d5;font-family:"Creepster",cursive;font-size:30px;letter-spacing:3px;text-shadow:2px 2px 0 rgba(120,0,0,.4)}.ending-message{color:#a59d91}
 @media(max-width:600px){.game-section{padding:60px 15px}.game-room{width:100%;min-height:500px;padding:20px 12px}.room-message{width:100%;padding:20px;font-size:15px;line-height:1.7}.search-area{flex-direction:column;align-items:center}.search-object{width:min(250px,90%)}.code-section{padding:25px 18px}.ending-final{font-size:24px}}
+.opening button {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: investigationPulse 3s ease-in-out infinite !important;
+}
