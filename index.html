@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Case File</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Creepster&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+
+</head>
+
+
+<body>
+    <button id="sound-button" onclick="startMusic()">🔊 TURN ON SOUND</button>
+
+    <audio id="background-music" src="sounds/horror.mp3" loop preload="auto" >
+        <source src="sounds/horror.mp3" type="audio/mpeg">
+    </audio>
+    
+    
+    
+
+    <!-- ================================
+         OPENING SCREEN
+    ================================= -->
+
+    <main class="opening">
+        
+
+
+        <!-- Left hanging bulb -->
+        <div class="bulb bulb-one"></div>
+
+        <!-- Right hanging bulb -->
+        <div class="bulb bulb-two"></div>
+
+
+        <!-- Case information -->
+
+        <p class="case-number">
+            CASE FILE 001
+        </p>
+
+
+        <h1>
+            THE CASE FILE
+        </h1>
+
+
+        <p class="subtitle">
+            AN UNUSUAL INVESTIGATION
+        </p>
+        <p
+            class="case-meta"
+            onclick="secretArchive()"
+        >
+            ARCHIVE: 001 // STATUS: CLASSIFIED
+        </p>
+
+        <div id="secret-archive">
+            YOU WEREN'T SUPPOSED TO FIND THIS.
+            <br>
+            BUT I'M GLAD YOU DID.
+        </div>
+        <p 
+            class="hidden-message"
+            onclick="revealHiddenMessage()"
+         >
+            SOME FILES ARE WORTH OPENING.
+        </p>
+
+<p id="hidden-message-result"></p>
+
+
+        <!-- Confidential notice -->
+         <div class="classified-stamp">
+               CLASSIFIED
+        </div>
+
+        <div class="warning">
+
+            <p>
+                CONFIDENTIAL
+            </p>
+
+            <p>
+                This file contains information<br>
+                concerning one particular person.
+            </p>
+
+        </div>
+
+
+        <!-- Main button -->
+
+        <button onclick="beginInvestigation(); document.getElementById('background-music').play();">
+            BEGIN INVESTIGATION
+        </button>
+        <p id="loading-message">
+            ACCESSING CASE FILE...
+        </p>
+
+
+    </main>
+
+
+
+    <!-- ================================
+         FIRST CASE FILE
+    ================================= -->
+
+    <section
+        id="case-one"
+        class="case-section"
+        style="display: none;"
+    >
+
+        <p class="case-label">
+            CASE FILE 001
+        </p>
+
+
+        <h2>
+            SUBJECT: RAUNAK
+        </h2>
+
+
+        <p class="case-intro">
+            Investigation has officially begun.
+        </p>
+
+
+        <div class="case-details">
+
+            <p>
+                <span>APPEARANCE:</span>
+                Unnecessarily attractive. Frankly, it's becoming suspicious.
+            </p>
+
+            <p>
+                <span>KNOWN INTEREST:</span>
+                Football. Obviously.
+            </p>
+
+            <p>
+                <span>LOYALTY:</span>
+                Real Madrid. No further investigation required.
+            </p>
+
+            <p>
+                <span>ADDITIONAL FINDING:</span>
+                Tends to handle things on his own.
+            </p>
+
+        </div>
+
+
+        <p class="investigator-note">
+            INVESTIGATOR'S NOTE:<br>
+            We're keeping an eye on you.
+        </p>
+
+
+        <button onclick="nextCase()">
+            CONTINUE
+        </button>
+
+
+    </section>
+
+
+
+    <!-- ================================
+         SECOND CASE FILE
+    ================================= -->
+
+    <section
+        id="case-two"
+        class="case-section"
+        style="display: none;"
+    >
+
+        <p class="case-label">
+            CASE FILE 002
+        </p>
+
+
+        <h2>
+            INVESTIGATION UPDATE
+        </h2>
+
+
+        <p class="evidence-intro">
+            One piece of evidence has been recovered.
+        </p>
+
+
+        <div
+            class="evidence-card"
+            onclick="revealEvidence()"
+        >
+
+            <div class="evidence-front">
+
+                <p>
+                    CLASSIFIED
+                </p>
+
+                <span>
+                    CLICK TO EXAMINE
+                </span>
+
+            </div>
+
+
+            <div class="evidence-back">
+
+                <p>
+                    You don't have to handle everything alone.
+                </p>
+
+                <p>
+                    I know you're trying to keep it together.
+                    And I know you may not want to talk about
+                    everything right now.
+                </p>
+
+                <p>
+                    That's okay.
+                </p>
+
+                <p>
+                    You don't have to explain anything to me.
+                    Just know that I'm here.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button onclick="caseThree()">
+            CONTINUE
+        </button>
+
+
+    </section>
+
+
+
+    <!-- ================================
+         THIRD CASE FILE
+    ================================= -->
+
+    <section
+        id="case-three"
+        class="case-section"
+        style="display: none;"
+    >
+
+        <p class="case-label">
+            CASE FILE 003
+        </p>
+
+
+        <h2>
+            THE ACTUAL FINDING
+        </h2>
+
+
+        <p class="case-intro">
+            Further investigation revealed something unexpected.
+        </p>
+
+
+        <div class="case-details">
+
+            <p>
+                <span>OBSERVATION:</span>
+                You have a habit of dealing with everything yourself.
+            </p>
+
+            <p>
+                <span>CONCLUSION:</span>
+                That doesn't mean you always have to.
+            </p>
+
+        </div>
+
+
+        <p class="investigator-note">
+            SOME CASES AREN'T MEANT<br>
+            TO BE HANDLED ALONE.
+        </p>
+
+
+        <div
+            class="case-three-stamp"
+            onclick="inspectStamp()"
+        >
+            FILE STATUS: OPEN
+        </div>
+
+<p id="stamp-message"></p>
+
+
+        <div class="choice-section">
+
+            <p class="choice-question">
+                SUBJECT HAS THREE POSSIBLE RESPONSES.
+            </p>
+
+            <p class="choice-subtext">
+                Select one.
+            </p>
+
+
+            <div class="choice-buttons">
+
+                <button onclick="chooseCase('talk')">
+                    TALK
+                </button>
+
+                <button onclick="chooseCase('distract')">
+                    DISTRACT ME
+                </button>
+
+                <button onclick="chooseCase('silence')">
+                    JUST STAY
+                </button>
+
+            </div>
+
+
+            <div id="choice-response"></div>
+
+        </div>
+
+
+        <!-- Football reference -->
+
+        <div class="football-note">
+
+            <p class="football-label">
+                FIELD REPORT // 90:00
+            </p>
+
+            <p class="football-text">
+                It's the 90th minute.
+            </p>
+
+            <p class="football-subtext">
+                The game isn't over yet. 
+            </p>
+
+        </div>
+
+
+        <button onclick="finalCase()">
+            CONTINUE
+        </button>
+
+
+    </section>
+
+
+
+    <!-- ================================
+         FINAL CASE FILE
+    ================================= -->
+
+    <section
+        id="case-four"
+        class="case-section"
+        style="display: none;"
+    >
+
+        <p class="case-label">
+            CASE FILE 004
+        </p>
+
+
+        <h2>
+            CASE CLOSED?
+        </h2>
+
+
+        <p class="case-intro">
+            Not quite.
+        </p>
+
+
+        <div class="final-message">
+
+            <p>
+                I know you don't always talk about what's going on.
+            </p>
+
+            <p>
+                You usually just deal with things, keep going,
+                and somehow make it look like you're fine.
+            </p>
+
+            <p>
+                But you don't have to do that with me.
+            </p>
+
+            <p>
+                If you want to talk, I'll listen.
+                If you want a distraction, I'll find one.
+                And if you don't want to say anything at all,
+                that's okay too.
+            </p>
+
+            <p>
+                You can just have me there.
+            </p>
+
+            <p class="final-line">
+                No matter what the case says.
+            </p>
+
+        </div>
+
+
+        <p
+            class="case-ending"
+            onclick="openFinalNote()"
+        >
+            FILE STATUS:
+            <span>NEVER REALLY CLOSED</span>
+        </p>
+
+
+        <div id="final-note">
+
+    <p>
+        One last thing.
+    </p>
+
+    <p>
+        You don't have to figure everything out today.
+    </p>
+
+    <p>
+        Just take it one day at a time.
+    </p>
+
+    <p>
+        And whenever you need me,
+        you know where to find me.
+    </p>
+
+    
+
+</div>
+<button onclick="document.getElementById('case-four').style.display='none'; document.getElementById('game').style.display='block'; window.scrollTo({top: 0, behavior: 'smooth'});">
+    ENTER THE HOUSE
+</button>
+
+
+
+
+
+    </section>
+    <section
+    id="game"
+    class="game-section"
+    style="display: none;"
+>
+    <p class="case-label">
+        CASE FILE 005
+    </p>
+
+    <h2>
+        THE HOUSE
+    </h2>
+
+    <p class="game-intro">
+        The report says the house has been empty for years.
+        <br>
+        The report is probably wrong.
+    </p>
+
+    <div class="game-status">
+        <span>INVESTIGATION STATUS:</span>
+        <strong id="game-status-text">ENTERING</strong>
+    </div>
+
+    <div class="game-room">
+
+        <div class="room-darkness" id="room-darkness"></div>
+
+        <div class="room-message" id="room-message">
+            <p>
+                You step inside.
+            </p>
+
+            <p>
+                The door closes behind you.
+            </p>
+
+            <p>
+                Something is breathing somewhere in the house.
+            </p>
+
+            <p class="game-warning">
+                Find the clues.
+            </p>
+        </div>
+
+        <button
+            class="flashlight-button"
+            onclick="turnOnFlashlight()"
+            id="flashlight-button"
+        >
+            🔦 TURN ON FLASHLIGHT
+        </button>
+
+        <div class="search-area" id="search-area">
+
+            <button
+                class="search-object object-one"
+                onclick="findClue(1)"
+                id="object-one"
+            >
+                SEARCH DESK
+            </button>
+
+            <button
+                class="search-object object-two"
+                onclick="findClue(2)"
+                id="object-two"
+            >
+                SEARCH MIRROR
+            </button>
+
+            <button
+                class="search-object object-three"
+                onclick="findClue(3)"
+                id="object-three"
+            >
+                SEARCH DOOR
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="clue-display"></div>
+
+    <div
+        id="code-section"
+        class="code-section"
+    >
+        <p>
+            THREE CLUES RECOVERED.
+        </p>
+
+        <p class="code-hint">
+            The house is asking for a number.
+        </p>
+
+        <input
+            type="text"
+            id="code-input"
+            maxlength="3"
+            placeholder="___"
+            autocomplete="off"
+        >
+
+        <button onclick="checkCode()">
+            SUBMIT CODE
+        </button>
+
+        <p id="code-result"></p>
+    </div>
+
+    <div
+        id="game-ending"
+        class="game-ending"
+    >
+        <p class="ending-warning">
+            CONNECTION ESTABLISHED.
+        </p>
+
+        <p>
+            You found what was hidden in the house.
+        </p>
+
+        <p>
+            But the house wasn't looking for a number.
+        </p>
+
+        <p class="ending-final">
+            IT WAS LOOKING FOR SOMEONE.
+        </p>
+
+        <p>
+            Investigation complete.
+        </p>
+
+        <p class="ending-message">
+            And unfortunately for you...
+            <br>
+            you're now officially involved.
+        </p>
+
+        <button onclick="finishGame()">
+            CLOSE CASE
+        </button>
+    </div>
+
+</section>
+
+
+</body>
+
+</html>
